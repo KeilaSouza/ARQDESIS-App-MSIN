@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">myProjectapp</string>
+    <string name="edit_Message">Oi Linda!</string>
+    <string name="title_activity_main2">Main2Activity</string>
+</resources>
