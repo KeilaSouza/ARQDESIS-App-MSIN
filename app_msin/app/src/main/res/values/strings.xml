@@ -1,5 +1,30 @@
 <resources>
-    <string name="app_name">myProjectapp</string>
-    <string name="edit_Message">Oi Linda!</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="app_name">Cursos</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="label_curso_tipo">Tipo de Curso:</string>
+    <string name="label_curso_Codigo">Codigo do Curso: </string>
+    <string name="label_curso_Nome">Nome: </string>
+    <string name="label_curso_DataInicio">Data Inicio: </string>
+    <string name="label_curso_DataFim">Data Fim: </string>
+    <string name="label_curso_Horário">Horário da Aula: </string>
+    <string name="label_curso_Vagas">Vagas: </string>
+    <string name="label_curso_Valor">Valor:R$ </string>
+    <string name="label_curso_Sala">Sala: </string>
+    <string name="botao_Consultar">Consultar</string>
+
+
+    <string-array name="TipodeCurso">
+
+        <item>Escolha o Tipo de Curso</item>
+        <item>Informática</item>
+        <item>Artes</item>
+    </string-array>
+    <string name="title_activity_lista_curso">Lista de cursos</string>
+    <string name="txt_lista_cursos">Nenhum curso encontrada</string>
+    <string name="title_activity_detalhe_curso">Curso Escolhido</string>
+
+    <string name="botao_enviar_melhor">Consultar Melhor</string>
+
 </resources>
+
