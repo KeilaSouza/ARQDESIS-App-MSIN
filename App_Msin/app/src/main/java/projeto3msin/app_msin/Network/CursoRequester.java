@@ -31,10 +31,11 @@ public class CursoRequester {
 
     OkHttpClient client = new OkHttpClient();
 
-    public ArrayList<Curso> get(String url, String ptipo,String pcodigo,String pnome,String pdatainicio,String pdatafim,String phorario,String pvagas,String psala) throws IOException {
+    public ArrayList<Curso> get(String url, String ptipo,String pcodigo,String pnome,String pdatainicio,String pdatafim,String phorario,String pvagas,String psala,Double pvalor) throws IOException {
 
         ArrayList<Curso> lista = new ArrayList<>();
-        RequestBody formBody = new FormEncodingBuilder()
+        RequestBody formBody;
+        formBody = new FormEncodingBuilder()
                 .add("Tipo", ptipo)
                 .add("Codigo", pcodigo)
                 .add("Nome", pnome)

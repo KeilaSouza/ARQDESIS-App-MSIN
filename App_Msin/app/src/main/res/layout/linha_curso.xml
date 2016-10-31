@@ -7,7 +7,7 @@
     android:minHeight="25px"
     android:paddingBottom="4dp">
     <ImageView
-        android:id="@+id/Fotocurso"
+        android:id="@+id/FotoCurso"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_alignParentLeft="true"
@@ -15,7 +15,7 @@
         android:padding="5dp" />
     <TextView
         android:id="@+id/NomeCurso"
-        android:layout_toRightOf="@id/Fotocurso"
+        android:layout_toRightOf="@id/FotoCurso"
         android:text="--nome--"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
         android:paddingLeft="5dp" />
     <TextView
         android:id="@+id/DetalheCurso"
-        android:layout_toRightOf="@id/Fotocurso"
+        android:layout_toRightOf="@id/FotoCurso"
         android:layout_below="@id/NomeCurso"
         android:text="--speciality--"
         android:textAppearance="?android:attr/textAppearanceSmall"

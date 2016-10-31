@@ -21,7 +21,8 @@ public class MainActivity extends ActionBarActivity {
 
     Spinner spinnerTipo;
     Button btnConsultar;
-    String tipo;
+    String tipo,codigo,nome,datainicio,datafim,horario,salas,vagas;
+    Double valor;
     ArrayList<Curso> Cursos;
     final String servidor = "jbossews-curso.rhcloud.com";
     //final String servidor = "10.0.2.2:8080";
@@ -42,8 +43,8 @@ public class MainActivity extends ActionBarActivity {
     private void setupViews() {
         tipo = "";
 
-        btnConsultar = (Button) findViewById(R.id.botao_enviar);
-        spinnerTipo = (Spinner) findViewById(R.id.dropdown_tipo);
+        btnConsultar = (Button) findViewById(R.id.botao_consultar);
+        spinnerTipo = (Spinner) findViewById(R.id.dropdown_TipodeCurso);
         spinnerTipo.setOnItemSelectedListener(new TipoSelecionado());
         mProgress = (ProgressBar) findViewById(R.id.carregando);
         mProgress.setVisibility(View.INVISIBLE);
@@ -66,8 +67,15 @@ public class MainActivity extends ActionBarActivity {
 
     public void consultarCurso(View view) {
         final String pTipo = this.tipo.equals("Escolha o Tipo")?"":tipo;
+        final String pCodigo = this.tipo.equals("")?"":codigo;
+        final String pNome = this.tipo.equals("")?"":nome;
+        final String pDataInicio = this.tipo.equals("")?"":datainicio;
+        final String pDataFim = this.tipo.equals("")?"":datafim;
+        final String pHorario = this.tipo.equals("")?"":horario;
+        final String pVagas = this.tipo.equals("")?"":vagas;
+        final String pSala = this.tipo.equals("")?"":salas;
 
-        requester = new CursoRequester());
+        requester = new CursoRequester();
         if(requester.isConnected(this)) {
             intent = new Intent(this, ListaCursoActivity.class);
 
@@ -76,11 +84,11 @@ public class MainActivity extends ActionBarActivity {
                 @Override
                 public void run() {
                     try {
-                        curso = requester.get("http://" + servidor + "/selecao.json", pTipo);
+                        Cursos = requester.get("http://" + servidor + "/selecao.json", pTipo,pCodigo,pNome,pDataInicio,pDataFim,pHorario,pVagas,pSala,0.0);
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                intent.putExtra(Curso, curso);
+                                intent.putExtra(Curso,Cursos);
                                 mProgress.setVisibility(View.INVISIBLE);
                                 startActivity(intent);
                             }

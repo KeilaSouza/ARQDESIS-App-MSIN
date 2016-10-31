@@ -20,7 +20,7 @@ public class ListaCursoActivity {
     ListView listView;
     Activity atividade;
     public final static String Curso = "projeto3msin.app_msin";
-    Curso[] Curso;
+    Curso[] Cursos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

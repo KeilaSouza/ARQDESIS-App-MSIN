@@ -9,21 +9,20 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.Locale;
-import android.support.*;
 
-import projeto3msin.app_msin.R;
-import projeto3msin.app_msin.Adapter.CursoAdapter;
 import projeto3msin.app_msin.Model.Curso;
-
 import projeto3msin.app_msin.Network.CursoRequester;
+import projeto3msin.app_msin.R;
 
 public class DetalheCursoActivity extends ActionBarActivity {
     TextView cursoTipo,cursoCodigo,cursoNome,cursoDatain,cursoDatafn,cursoHorario,cursoVagas,cursoSala,cursoValor;
@@ -49,7 +48,7 @@ public class DetalheCursoActivity extends ActionBarActivity {
                 public void run() {
                     try {
                         mProgress.setVisibility(View.VISIBLE);
-                        final Bitmap img = requester.getImage(curso.getImagem());
+                        final Bitmap img = requester.getImagem(curso.getImagem());
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -65,7 +64,7 @@ public class DetalheCursoActivity extends ActionBarActivity {
             }).start();
         } else {
             Resources res = getResources();
-            Drawable drawable = res.getDrawable(R.drawable.garrafa_vazia);
+            Drawable drawable = res.getDrawable(R.drawable.nao_existe);
             cursoImageView.setImageDrawable(drawable);
             Toast toast = Toast.makeText(this, "Rede indisponível!", Toast.LENGTH_LONG);
             toast.show();
@@ -81,17 +80,19 @@ public class DetalheCursoActivity extends ActionBarActivity {
         Locale locale = new Locale("pt", "BR");
         NumberFormat formatter = NumberFormat.getCurrencyInstance(locale);
         cursoValor.setText(""+formatter.format(curso.getValor()));
-        cursoTipo = (TextView) findViewById(R.id.txt_curso_Tipo);
+        cursoTipo = (TextView) findViewById(R.id.txt_curso_tipo);
         cursoTipo.setText(curso.getTipo());
-        cursoDatain = (TextView) findViewById(R.id.txt_curso_DataInicio);
+        cursoCodigo = (TextView) findViewById(R.id.txt_curso_codigo);
+        cursoCodigo.setText(curso.getTipo());
+        cursoDatain = (TextView) findViewById(R.id.txt_curso_datainicio);
         cursoDatain.setText(curso.getDataInicio());
-        cursoDatafn = (TextView) findViewById(R.id.txt_curso_DataFim);
+        cursoDatafn = (TextView) findViewById(R.id.txt_curso_datafim);
         cursoDatafn.setText(curso.getDataFim());
-        cursoHorario = (TextView) findViewById(R.id.txt_curso_Horario);
+        cursoHorario = (TextView) findViewById(R.id.txt_curso_horario);
         cursoHorario.setText(curso.getHorario());
-        cursoSala= (TextView) findViewById(R.id.txt_curso_Sala);
+        cursoSala= (TextView) findViewById(R.id.txt_curso_sala);
         cursoSala.setText(curso.getSala());
-        cursoVagas = (TextView) findViewById(R.id.txt_curso_Vagas);
+        cursoVagas = (TextView) findViewById(R.id.txt_curso_vagas);
         cursoVagas.setText(curso.getVagas());
         mProgress = (ProgressBar) findViewById(R.id.carregando_curso);
         mProgress.setVisibility(View.INVISIBLE);

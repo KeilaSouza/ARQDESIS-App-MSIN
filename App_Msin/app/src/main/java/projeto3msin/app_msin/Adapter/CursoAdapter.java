@@ -65,9 +65,9 @@ public class CursoAdapter extends BaseAdapter implements SectionIndexer
                     (Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.linha_curso, parent, false);
 
-            ImageView FotoCurso = (ImageView)view.findViewById(R.id.FotoCursoImageView);
-            TextView  NomeCurso=(TextView)view.findViewById(R.id.NomeCursoTextView);
-            TextView DetalheCurso = (TextView)view.findViewById(R.id.DetalheCursoTextView);
+            ImageView FotoCurso = (ImageView)view.findViewById(R.id.FotoCurso);
+            TextView  NomeCurso=(TextView)view.findViewById(R.id.NomeCurso);
+            TextView DetalheCurso = (TextView)view.findViewById(R.id.DetalheCurso);
 
             view.setTag(new ViewHolder(FotoCurso,NomeCurso,DetalheCurso));
         }
@@ -102,4 +102,5 @@ public class CursoAdapter extends BaseAdapter implements SectionIndexer
         return sectionForPositionMap.get(position).intValue();
     }
 }
+
 
